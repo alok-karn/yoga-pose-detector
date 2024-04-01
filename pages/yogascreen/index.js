@@ -21,6 +21,7 @@ const YogaScreen = () => {
     const [remainingTime, setRemainingTime] = useState(120); // 2 minutes in seconds
     const [sessionPaused, setSessionPaused] = useState(false);
     const [pauseTime, setPauseTime] = useState(0); // Time when the session was paused
+
     useEffect(() => {
         const initModel = async () => {
             try {
@@ -44,11 +45,11 @@ const YogaScreen = () => {
 
         initModel();
 
-        return () => {
-            if (model) {
-                model.dispose();
-            }
-        };
+        // return () => {
+        //     if (model) {
+        //         model.dispose();
+        //     }
+        // };
     }, []);
 
     useEffect(() => {
@@ -87,27 +88,6 @@ const YogaScreen = () => {
         window.history.back();
     };
 
-    const handleStart = () => {
-        setSessionStarted(true);
-        setRemainingTime(120); // Reset remaining time to 2 minutes
-        if (webcamRef.current && webcamRef.current.video) {
-            webcamRef.current.video.play();
-        }
-        setTimeout(() => {
-            setSessionStarted(false);
-            if (webcamRef.current && webcamRef.current.video) {
-                webcamRef.current.video.pause();
-            }
-        }, 120000); // 2 minutes in milliseconds
-    };
-
-    const handleStop = () => {
-        setSessionStarted(false);
-        if (webcamRef.current && webcamRef.current.video) {
-            webcamRef.current.video.pause();
-        }
-    };
-
     // toggle sessions
 
     const handleToggleSession = () => {
@@ -131,6 +111,38 @@ const YogaScreen = () => {
             setRemainingTime(pauseTime);
         }
     };
+
+    // Handle Start Session
+
+    const handleStart = () => {
+        setSessionStarted(true);
+        setRemainingTime(120);
+        if (webcamRef.current && webcamRef.current.video) {
+            webcamRef.current.video.play();
+        }
+    };
+
+    // Handle Stop Session
+
+    const handlePause = () => {
+        setSessionPaused(true);
+        setPauseTime(remainingTime);
+
+        if (webcamRef.current && webcamRef.current.video) {
+            webcamRef.current.video.pause();
+        }
+    };
+
+    // Handle Resume Session
+
+    const handleResume = () => {
+        setSessionPaused(false);
+        if (webcamRef.current && webcamRef.current.video) {
+            webcamRef.current.video.play();
+        }
+        setRemainingTime(pauseTime);
+    };
+
     // for time remaining countdown
 
     const formatTime = (time) => {
@@ -152,6 +164,7 @@ const YogaScreen = () => {
             });
             if (response.ok) {
                 console.log("Yoga Pose status update successfully");
+                incrementSessionCount(); // increment the session count of the yoga pose after the session is completed
             } else {
                 console.error("Failed to update yoga pose status");
             }
@@ -160,9 +173,35 @@ const YogaScreen = () => {
         }
     };
 
+    // increment session count of the yoga pose
+
+    const incrementSessionCount = async () => {
+        try {
+            const response = await fetch("/api/updateSessionCount", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ poseName }),
+            });
+            if (response.ok) {
+                console.log("Session count incremented successfully");
+                // Update user activity after incrementing session count
+                await fetch("/api/updateUserActivity", {
+                    method: "POST",
+                });
+            } else {
+                console.log("Failed to increment session count");
+            }
+        } catch (error) {
+            console.error("Error Incrementing session count: ", error);
+        }
+    };
+
     useEffect(() => {
         if (sessionStarted && remainingTime <= 0) {
             updateStatus();
+            incrementSessionCount();
         }
     }, [sessionStarted, remainingTime]);
 
@@ -172,7 +211,7 @@ const YogaScreen = () => {
                 <h1 className="text-xl font-bold text-gray-800">Yoga Screen</h1>
                 <button
                     onClick={handleBack}
-                    className="font-medium text-gray-800">
+                    className="font-bold text-gray-700">
                     {" "}
                     {"<"} &nbsp; Back
                 </button>
@@ -195,8 +234,13 @@ const YogaScreen = () => {
                 <div className="flex flex-col w-auto h-auto gap-4">
                     {/* Upper part */}
                     <div className="w-[700px] h-[300px] bg-gray-200 rounded-md p-4">
-                        <h1>{poseName}</h1>
-                        <div id="label-container" ref={labelContainerRef}>
+                        <h1 className="text-xl font-bold text-gray-800">
+                            {poseName}
+                        </h1>
+                        <div
+                            id="label-container"
+                            ref={labelContainerRef}
+                            className="w-auto py-4 mt-2 mb-4 h-7">
                             {[
                                 ...new Set(
                                     predictions
@@ -209,33 +253,39 @@ const YogaScreen = () => {
                                         )
                                 ),
                             ].map((className, index) => (
-                                <div key={index}>{className}</div>
+                                <div
+                                    key={index}
+                                    className="flex items-center justify-center w-auto mb-2 text-lg font-bold bg-white rounded-full shadow-sm text-lime-500">
+                                    {className}
+                                </div>
                             ))}
                         </div>
                         {/* Countdown timer */}
-                        <div>Remaining Time: {formatTime(remainingTime)}</div>
-                        {/* Display paused time if session is paused */}
-                        {sessionPaused && (
-                            <div>Paused at: {formatTime(pauseTime)}</div>
-                        )}
+                        <div className="flex items-center justify-between w-full mt-4">
+                            <div className="flex items-center w-auto">
+                                <h2 className="text-[18px] font-semibold text-gray-800">
+                                    Remaining Time:
+                                </h2>
+                                <span className="ml-2 text-xl font-bold text-gray-700">
+                                    {formatTime(remainingTime)}
+                                </span>
+                            </div>
+                            {/* Display paused time if session is paused */}
+                            {sessionPaused && (
+                                <div className="flex items-center w-[50%]">
+                                    <h2 className="text-[18px] font-semibold text-gray-800">
+                                        Paused at:
+                                    </h2>
+                                    <span className="ml-2 text-xl font-bold text-gray-700">
+                                        {formatTime(pauseTime)}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
 
                         {/* Start and stop buttons */}
-                        <div>
-                            {/* {!sessionStarted ? (
-                                <button
-                                    onClick={handleStart}
-                                    className="px-4 py-2 bg-[#84CC16] rounded-md font-medium text-gray-50">
-                                    Start
-                                </button>
-                            ) : (
-                                <button
-                                    onClick={handleStop}
-                                    className="px-4 py-2 bg-[#cc4016] rounded-md font-medium text-gray-50">
-                                    Stop
-                                </button>
-                            )} */}
-
-                            <button
+                        <div className="mt-6">
+                            {/* <button
                                 onClick={handleToggleSession}
                                 className={`px-4 py-2 rounded-md font-medium text-gray-50 ${
                                     !sessionStarted || sessionPaused
@@ -245,7 +295,29 @@ const YogaScreen = () => {
                                 {!sessionStarted || sessionPaused
                                     ? "Start"
                                     : "Pause/Resume"}
-                            </button>
+                            </button> */}
+
+                            {sessionStarted && !sessionPaused && (
+                                <button
+                                    onClick={handlePause}
+                                    className="px-4 py-2 rounded-md font-medium text-gray-50 bg-[#cc4016]">
+                                    Pause
+                                </button>
+                            )}
+                            {sessionStarted && sessionPaused && (
+                                <button
+                                    onClick={handleResume}
+                                    className="px-4 py-2 rounded-md font-medium text-gray-50 bg-[#f1a619]">
+                                    Resume
+                                </button>
+                            )}
+                            {!sessionStarted && (
+                                <button
+                                    onClick={handleStart}
+                                    className="px-4 py-2 rounded-md font-medium text-gray-50 bg-[#84CC16]">
+                                    Start
+                                </button>
+                            )}
                         </div>
                     </div>
 

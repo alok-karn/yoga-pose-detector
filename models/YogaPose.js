@@ -11,6 +11,10 @@ const YogaPoseSchema = new Schema(
             required: true,
             enum: ["true", "false"],
         },
+        sessionCount: {
+            type: Number,
+            required: true,
+        },
         schedule: {
             type: String,
             required: true,

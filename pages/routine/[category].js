@@ -31,7 +31,7 @@ export default function Category({ poses }) {
             </h1>
 
             {isLoading ? (
-                <div className="flex flex-wrap w-auto h-auto gap-8 items-center justify-center">
+                <div className="flex flex-wrap items-center justify-center w-auto h-auto gap-8">
                     {SkeletonYoagCount.map((_, key) => (
                         <div key={key}>
                             <SkeletonYogaPoseLoader />
@@ -39,7 +39,7 @@ export default function Category({ poses }) {
                     ))}
                 </div>
             ) : (
-                <div className="flex flex-wrap w-full h-auto gap-10 items-center justify-center">
+                <div className="flex flex-wrap items-center justify-center w-full h-auto gap-10">
                     {poses.map((pose) => (
                         <Bounce key={pose._id}>
                             <YogaPoseContainer pose={pose} />
@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
     const { category } = context.query;
     await mongooseConnect();
     const poses = await YogaPose.find({ category });
-    console.log(poses.length);
+    
     return {
         props: {
             poses: JSON.parse(JSON.stringify(poses)),

@@ -3,6 +3,7 @@ export const YogaData = [
         id: "1",
         name: "Adho Mukha Svanasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -12,6 +13,7 @@ export const YogaData = [
         id: "2",
         name: "Adho Mukha Vrksasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -21,6 +23,7 @@ export const YogaData = [
         id: "3",
         name: "Alanasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -30,6 +33,7 @@ export const YogaData = [
         id: "4",
         name: "Anjaneyasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -39,6 +43,7 @@ export const YogaData = [
         id: "5",
         name: "Ardha Chandrasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -48,6 +53,7 @@ export const YogaData = [
         id: "6",
         name: "Ardha Matsyendrasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Intermediate Poses",
         description:
@@ -57,6 +63,7 @@ export const YogaData = [
         id: "7",
         name: "Ardha Navasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -66,6 +73,7 @@ export const YogaData = [
         id: "8",
         name: "Ardha Pincha Mayurasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -75,6 +83,7 @@ export const YogaData = [
         id: "9",
         name: "Ashta Chandrasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "undefined",
         description:
@@ -84,6 +93,7 @@ export const YogaData = [
         id: "10",
         name: "Baddha Konasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "undefined",
         description:
@@ -93,6 +103,7 @@ export const YogaData = [
         id: "11",
         name: "Bakasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Intermediate Poses",
         description:
@@ -102,6 +113,7 @@ export const YogaData = [
         id: "12",
         name: "Balasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -111,6 +123,7 @@ export const YogaData = [
         id: "13",
         name: "Bitilasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -120,6 +133,7 @@ export const YogaData = [
         id: "14",
         name: "Camatkarasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Intermediate Poses",
         description:
@@ -129,6 +143,7 @@ export const YogaData = [
         id: "15",
         name: "Dhanurasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -138,6 +153,7 @@ export const YogaData = [
         id: "16",
         name: "Eka Pada Rajakapotasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -147,6 +163,7 @@ export const YogaData = [
         id: "17",
         name: "Garudasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -156,6 +173,7 @@ export const YogaData = [
         id: "18",
         name: "Halasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Restorative Poses",
         description:
@@ -165,6 +183,7 @@ export const YogaData = [
         id: "19",
         name: "Hanumanasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -174,6 +193,7 @@ export const YogaData = [
         id: "20",
         name: "Malasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -183,6 +203,7 @@ export const YogaData = [
         id: "21",
         name: "Marjaryasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -192,6 +213,7 @@ export const YogaData = [
         id: "22",
         name: "Navasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -201,6 +223,7 @@ export const YogaData = [
         id: "23",
         name: "Padmasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Restorative Poses",
         description: "",
@@ -209,6 +232,7 @@ export const YogaData = [
         id: "24",
         name: "Parsva Virabhadrasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Intermediate Poses",
         description:
@@ -218,6 +242,7 @@ export const YogaData = [
         id: "25",
         name: "Parsvottanasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Intermediate Poses",
         description:
@@ -227,6 +252,7 @@ export const YogaData = [
         id: "26",
         name: "Paschimottanasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Intermediate Poses",
         description:
@@ -236,6 +262,7 @@ export const YogaData = [
         id: "27",
         name: "Phalakasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Beginner Poses",
         description:
@@ -245,6 +272,7 @@ export const YogaData = [
         id: "28",
         name: "Pincha Mayurasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -254,6 +282,7 @@ export const YogaData = [
         id: "29",
         name: "Salamba Bhujangasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Restorative Poses",
         description:
@@ -263,6 +292,7 @@ export const YogaData = [
         id: "30",
         name: "Salamba Sarvangasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -272,6 +302,7 @@ export const YogaData = [
         id: "31",
         name: "Setu Bandha Sarvangasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Intermediate Poses",
         description:
@@ -281,6 +312,7 @@ export const YogaData = [
         id: "32",
         name: "Shavasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Restorative Poses",
         description:
@@ -290,6 +322,7 @@ export const YogaData = [
         id: "33",
         name: "Supta Kapotasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -299,6 +332,7 @@ export const YogaData = [
         id: "34",
         name: "Trikonasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Restorative Poses",
         description:
@@ -308,6 +342,7 @@ export const YogaData = [
         id: "35",
         name: "Upavistha Konasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Restorative Poses",
         description:
@@ -317,6 +352,7 @@ export const YogaData = [
         id: "36",
         name: "Urdhva Dhanurasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -326,6 +362,7 @@ export const YogaData = [
         id: "37",
         name: "Urdhva Mukha Svanasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -335,6 +372,7 @@ export const YogaData = [
         id: "38",
         name: "Ustrasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -344,6 +382,7 @@ export const YogaData = [
         id: "39",
         name: "Utkatasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "undefined",
         description:
@@ -353,6 +392,7 @@ export const YogaData = [
         id: "40",
         name: "Uttanasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -362,6 +402,7 @@ export const YogaData = [
         id: "41",
         name: "Utthita Hasta Padangusthasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -371,6 +412,7 @@ export const YogaData = [
         id: "42",
         name: "Utthita Parsvakonasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -380,6 +422,7 @@ export const YogaData = [
         id: "43",
         name: "Vasisthasana",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:
@@ -389,6 +432,7 @@ export const YogaData = [
         id: "44",
         name: "Virabhadrasana One",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Advanced Poses",
         description:
@@ -398,6 +442,7 @@ export const YogaData = [
         id: "45",
         name: "Virabhadrasana Three",
         status: "false",
+        sessionCount: 0,
         schedule: "undefined",
         category: "Balancing Poses",
         description:

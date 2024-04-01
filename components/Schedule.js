@@ -24,8 +24,8 @@ function ScheduledExercisesList({ exercise, key, onDelete }) {
     return (
         <div
             key={key}
-            className="flex items-center justify-between tw-auto h-10 gap-2 p-2 bg-white rounded-sm mb-2">
-            <p className="text-lg font-medium text-gray-800 capitalize">
+            className="flex items-center justify-between w-auto h-10 gap-2 p-2 bg-white rounded-sm mb-2 hover:shadow-lg hover:cursor-default ">
+            <p className="text-lg font-medium text-gray-800 capitalize w-[150px] truncate hover:text-clip">
                 {exercise.asanaName}
             </p>
             <p className="text-xs font-medium">{exercise.date.slice(0, 10)}</p>
@@ -64,7 +64,7 @@ function ScheduledExercisesCard({ exercise, key, onDelete }) {
         <div
             key={key}
             className="w-[160px] h-[150px] p-2 rounded-2xl bg-[#1d3d1d42] shadow-md mb-2">
-            <h2 className="text-[18px] font-bold text-gray-100 mb-4 capitalize">
+            <h2 className="text-[18px] font-bold text-gray-100 mb-4 capitalize truncate w-auto">
                 {exercise.asanaName}
             </h2>
             <p className="text-sm font-semibold text-gray-100 mb-2">
@@ -77,7 +77,7 @@ function ScheduledExercisesCard({ exercise, key, onDelete }) {
             <div className="w-full h-6 flex items-center justify-end">
                 <button
                     onClick={handleDelete}
-                    className="bg-[#ff2b2be3] px-2 py-1 rounded-md text-white">
+                    className="bg-[#f00e0ee8] px-2 py-1 rounded-md text-white hover:bg-[#ff2b2ba1]">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"
@@ -242,11 +242,13 @@ function Schedule() {
                         ) : (
                             <p>No Exercise Scheduled Yet</p>
                         )}
-                        <button
-                            onClick={handleScheduleExercise}
-                            className="px-4 py-2 mt-8 font-medium bg-[#3d503d] rounded-md text-gray-50 hover:bg-[#435343] ">
-                            Schedule an Exercise
-                        </button>
+                        <div className="w-full h-auto flex items-center justify-center">
+                            <button
+                                onClick={handleScheduleExercise}
+                                className="px-4 py-2 mt-8 font-medium bg-[#3d503d] rounded-md text-gray-50 hover:bg-[#435343] flex items-center justify-center ">
+                                Schedule an Exercise
+                            </button>
+                        </div>
                     </div>
                 ) : (
                     <div className="w-full h-full overflow-hidden overflow-y-scroll p-4 schedule-card-container flex flex-wrap items-center justify-center gap-4">

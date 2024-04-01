@@ -18,6 +18,7 @@ const YogaPoseContainer = ({ pose }) => {
                 src="https://t3.ftcdn.net/jpg/05/99/11/22/360_F_599112273_oQmTC5kfpOhDnbbsgWDn8gVzEVc81cDN.jpg"
                 alt="yoga"
                 className="w-[200px] h-[250px] object-cover rounded-xl"
+                // src={pose.url}
             />
             <div className="flex flex-col w-auto h-auto gap-4">
                 <h2 className="text-xl font-bold text-gray-700 mt-[-88px]">

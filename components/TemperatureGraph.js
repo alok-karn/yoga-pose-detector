@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { temperatureData } from "@/data/constants";
 import {
     CartesianGrid,
@@ -12,11 +12,19 @@ import {
 } from "recharts";
 
 function TemperatureGraph() {
+    // api call from firebase to get temperature data
+    const [temData, setTemData] = useState([]);
+    useEffect(() => {
+        const fetchTempData = async () => {
+            // write your logic to fetch the data from firebase
+        };
+        fetchTempData();
+    }, []);
     return (
         <LineChart
             width={600}
             height={300}
-            data={temperatureData}
+            data={temperatureData} // temperatureData replaced with temData if fetched from firebase.
             margin={{
                 top: 5,
                 right: 30,
