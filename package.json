@@ -12,6 +12,7 @@
     "@emotion/react": "^11.11.4",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@teachablemachine/image": "^0.8.5",
     "@teachablemachine/pose": "^0.8.6",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",

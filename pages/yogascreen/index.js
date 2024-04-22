@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
 import dynamic from "next/dynamic";
+
+import * as tmImage from "@teachablemachine/image";
+
 import { useRouter } from "next/router";
 
 const DynamicTemeratureGraphWithNoSSR = dynamic(
@@ -22,18 +25,51 @@ const YogaScreen = () => {
     const [sessionPaused, setSessionPaused] = useState(false);
     const [pauseTime, setPauseTime] = useState(0); // Time when the session was paused
 
+    // useEffect(() => {
+    //     const initModel = async () => {
+    //         try {
+    //             const URL =
+    //                 "https://teachablemachine.withgoogle.com/models/uPxqNRgpF/";
+    //             const modelURL = URL + "model.json";
+    //             const metadataURL = URL + "metadata.json";
+
+    //             const loadedModel = await window.tmImage.load(
+    //                 modelURL,
+    //                 metadataURL
+    //             );
+    //             const classes = loadedModel.getTotalClasses();
+
+    //             setModel(loadedModel);
+    //             setMaxPredictions(classes);
+    //         } catch (error) {
+    //             console.error("Error initializing model:", error);
+    //         }
+    //     };
+
+    //     initModel();
+
+    //     return () => {
+    //         if (model) {
+    //             model.dispose();
+    //         }
+    //     };
+    // }, []);
+
     useEffect(() => {
         const initModel = async () => {
             try {
-                const URL =
-                    "https://teachablemachine.withgoogle.com/models/uPxqNRgpF/";
-                const modelURL = URL + "model.json";
-                const metadataURL = URL + "metadata.json";
+                const modelURL =
+                    "https://teachablemachine.withgoogle.com/models/uPxqNRgpF/model.json";
+                const metadataURL =
+                    "https://teachablemachine.withgoogle.com/models/uPxqNRgpF/metadata.json";
 
-                const loadedModel = await window.tmImage.load(
-                    modelURL,
-                    metadataURL
-                );
+                // const tmImage = window.tmImage;
+                // if (!tmImage) {
+                //     console.error("tmImage library is not available.");
+                //     return;
+                // }
+
+                const loadedModel = await tmImage.load(modelURL, metadataURL);
                 const classes = loadedModel.getTotalClasses();
 
                 setModel(loadedModel);
@@ -45,11 +81,11 @@ const YogaScreen = () => {
 
         initModel();
 
-        // return () => {
-        //     if (model) {
-        //         model.dispose();
-        //     }
-        // };
+        return () => {
+            if (model) {
+                model.dispose();
+            }
+        };
     }, []);
 
     useEffect(() => {
